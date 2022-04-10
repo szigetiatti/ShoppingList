@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ShoppingLIst</string>
+    <string name="database">ShoppingLIst.db</string>
 </resources>
