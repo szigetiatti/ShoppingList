@@ -1,4 +1,10 @@
 package com.example.shoppinglist.ui.main
 
-class MainRepository {
-}
+import com.example.shoppinglist.network.NetworkService
+import com.example.shoppinglist.persistence.ProductDao
+import javax.inject.Inject
+
+class MainRepository @Inject constructor(
+    private val networkService: NetworkService,
+    private val productDao: ProductDao
+)
