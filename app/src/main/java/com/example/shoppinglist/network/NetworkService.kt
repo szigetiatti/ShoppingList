@@ -5,6 +5,6 @@ import com.skydoves.sandwich.ApiResponse
 import retrofit2.http.GET
 
 interface NetworkService {
-    @GET("api/fruit/all")
+    @GET("all")
     suspend fun fetchProductList(): ApiResponse<List<Product>>
 }

@@ -10,15 +10,15 @@ import okhttp3.internal.threadName
 data class Product(
     @PrimaryKey val id: String,
     val name: String,
-    val protein: String,
-    val calories: String
+    val family: String,
+    val order: String
 ){
     companion object {
         fun mock() = Product(
             id = "0",
             name = "food",
-            protein = "much",
-            calories = "zero"
+            family = "much",
+            order = "zero"
         )
     }
 }
