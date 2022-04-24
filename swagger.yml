@@ -1,0 +1,54 @@
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: "ShoppingList"
+host: "fruityvice.com"
+tags:
+- name: "fruit"
+schemes:
+- "https"
+paths:
+  /fruit/all:
+    get:
+      tags:
+      - "fruit"
+      summary: "Retrieve all the fruits"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            $ref: "#/definitions/Fruit"
+
+definitions: 
+  Fruit: 
+    type: array
+    items: 
+      type: object
+      properties: 
+        genus: 
+          type: string
+        name: 
+          type: string
+        id: 
+          type: integer
+          format: int32
+        family: 
+          type: string
+        order: 
+          type: string
+        nutritions: 
+          type: object
+          properties: 
+            carbohydrates: 
+              type: number
+            protein: 
+              type: number
+            fat: 
+              type: number
+            calories: 
+              type: integer
+              format: int32
+            sugar: 
+              type: number
