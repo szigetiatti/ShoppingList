@@ -4,6 +4,10 @@ plugins {
 
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+
+    id "com.google.firebase.crashlytics"
+    id "com.google.gms.google-services"
+
 }
 
 android {
@@ -125,4 +129,12 @@ dependencies {
     androidTestImplementation "androidx.test.ext:junit:1.1.2"
     androidTestImplementation "com.android.support.test:runner:1.0.2"
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    // Import the Firebase BoM
+    implementation platform('com.google.firebase:firebase-bom:30.0.0')
+
+    // Add the dependency for the Firebase SDK for Google Analytics
+    // When using the BoM, don't specify versions in Firebase dependencies
+    implementation "com.google.firebase:firebase-analytics-ktx"
+    implementation "com.google.firebase:firebase-crashlytics-ktx"
 }
