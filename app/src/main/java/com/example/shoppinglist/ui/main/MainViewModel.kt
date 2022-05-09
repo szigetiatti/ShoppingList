@@ -7,7 +7,9 @@ import com.example.shoppinglist.model.Product
 import com.example.shoppinglist.ui.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -15,6 +17,12 @@ import javax.inject.Inject
 class MainViewModel @Inject constructor(
     private val mainRepository: MainRepository
 ) : BaseViewModel() {
+    private val productFlow: MutableSharedFlow<Long> = MutableSharedFlow(replay = 1)
+
+    val detailsFlow = productFlow.flatMapLatest {
+        mainRepository.getProduct()
+    }
+
     private var _products = mutableStateOf(value = listOf<Product>())
     val products: State<List<Product>> get() = _products
 
@@ -35,4 +43,7 @@ class MainViewModel @Inject constructor(
             }
         }
     }
+
+    fun loadProducts() = productFlow.resetReplayCache()
+
 }

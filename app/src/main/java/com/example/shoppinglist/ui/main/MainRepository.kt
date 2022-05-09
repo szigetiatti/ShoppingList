@@ -24,6 +24,12 @@ class MainRepository @Inject constructor(
     }
 
     @WorkerThread
+    fun getProduct() = flow {
+        val product = productDao.getProductList()
+        emit(product)
+    }.flowOn(Dispatchers.IO)
+
+    @WorkerThread
     fun getProductList(
         onStart: () -> Unit,
         onCompletion: () -> Unit,
