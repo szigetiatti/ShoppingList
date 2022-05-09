@@ -12,7 +12,7 @@ interface ProductDao {
     suspend fun insertProductList(posters: List<Product>)
 
     @Query("SELECT * FROM Product WHERE id = :id_")
-    suspend fun getProduct(id_: Long): Product?
+    suspend fun getProduct(id_: String): Product?
 
     @Query("SELECT * FROM Product")
     suspend fun getProductList(): List<Product>
