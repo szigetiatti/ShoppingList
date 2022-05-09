@@ -8,6 +8,7 @@ import androidx.activity.viewModels
 import androidx.annotation.VisibleForTesting
 import androidx.compose.material.MaterialTheme
 import com.example.shoppinglist.Utility.print
+import com.example.shoppinglist.ui.Screen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -21,7 +22,7 @@ class MainActivity: ComponentActivity() {
 
         setContent {
             MaterialTheme {
-                MainScreen()
+                Screen()
             }
         }
     }
